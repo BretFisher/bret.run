@@ -1,4 +1,4 @@
-FROM python:3.9.0-slim-buster
+FROM python:3.9-slim
 
 RUN pip install imgcat Pillow
 

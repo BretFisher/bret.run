@@ -1,4 +1,4 @@
-name: ci
+name: build-and-push-hub-images
 
 on:
   push:
@@ -33,3 +33,43 @@ jobs:
           push: true
           tags: |
             bretfisher/clock:latest
+      -
+        name: Build and push date
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: ./date.Dockerfile
+          platforms: linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64
+          push: true
+          tags: |
+            bretfisher/date:latest
+      -
+        name: Build and push facepalm
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: ./facepalm.Dockerfile
+          platforms: linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64
+          push: true
+          tags: |
+            bretfisher/facepalm:latest
+      -
+        name: Build and push pingpong
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: ./pingpong.Dockerfile
+          platforms: linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64
+          push: true
+          tags: |
+            bretfisher/pingpong:latest
+      -
+        name: Build and push top
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: ./top.Dockerfile
+          platforms: linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64
+          push: true
+          tags: |
+            bretfisher/top:latest
