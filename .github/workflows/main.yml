@@ -43,16 +43,16 @@ jobs:
           push: true
           tags: |
             bretfisher/date:latest
-      -
-        name: Build and push facepalm
-        uses: docker/build-push-action@v2
-        with:
-          context: .
-          file: ./facepalm.Dockerfile
-          platforms: linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64
-          push: true
-          tags: |
-            bretfisher/facepalm:latest
+      # -
+      #   name: Build and push facepalm
+      #   uses: docker/build-push-action@v2
+      #   with:
+      #     context: .
+      #     file: ./facepalm.Dockerfile
+      #     platforms: linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64
+      #     push: true
+      #     tags: |
+      #       bretfisher/facepalm:latest
       -
         name: Build and push pingpong
         uses: docker/build-push-action@v2
