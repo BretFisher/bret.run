@@ -1,4 +1,4 @@
-name: build-and-push-hub-image
+name: build-and-push-clock
 
 on:
   push:
