@@ -61,5 +61,5 @@ jobs:
           context: clock
           platforms: linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ steps.docker_meta.outputs.tags }}
-          labels: ${{ steps.docker_meta.outputs.labels }},latest
+          tags: ${{ steps.docker_meta.outputs.tags }},latest
+          labels: ${{ steps.docker_meta.outputs.labels }}
