@@ -1,4 +1,4 @@
-name: build-and-push-pingpong
+name: Build and Push Ping-pong Image
 
 on:
   push:
