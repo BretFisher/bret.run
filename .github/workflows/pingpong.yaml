@@ -6,13 +6,13 @@ on:
       - 'main'
     paths:
       - 'pingpong/**'
-      - '.github/workflows/pingpong.yml'
+      - '.github/workflows/pingpong.yaml'
   pull_request:
     branches:
       - 'main'
     paths:
       - 'pingpong/**'
-      - '.github/workflows/pingpong.yml'
+      - '.github/workflows/pingpong.yaml'
   schedule:
     # re-run montly to keep image fesh with upstream base images
     - cron: '0 12 15 * *'

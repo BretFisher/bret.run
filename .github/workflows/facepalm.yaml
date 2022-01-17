@@ -6,13 +6,13 @@ on:
       - 'main'
     paths:
       - 'facepalm/**'
-      - '.github/workflows/facepalm.yml'
+      - '.github/workflows/facepalm.yaml'
   pull_request:
     branches:
       - 'main'
     paths:
       - 'facepalm/**'
-      - '.github/workflows/facepalm.yml'
+      - '.github/workflows/facepalm.yaml'
   schedule:
     # re-run montly to keep image fesh with upstream base images
     - cron: '0 12 15 * *'
