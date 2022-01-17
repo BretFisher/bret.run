@@ -28,5 +28,6 @@ jobs:
       image-names: |
           bretfisher/facepalm
           ghcr.io/bretfisher/facepalm
+      context: facepalm
     secrets:
       dockerhub-token: ${{ secrets.DOCKERHUB_TOKEN }}

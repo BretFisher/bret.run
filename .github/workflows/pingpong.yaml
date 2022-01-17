@@ -28,5 +28,6 @@ jobs:
       image-names: |
           bretfisher/pingpong
           ghcr.io/bretfisher/pingpong
+      context: pingpong
     secrets:
       dockerhub-token: ${{ secrets.DOCKERHUB_TOKEN }}

@@ -28,5 +28,6 @@ jobs:
       image-names: |
           bretfisher/clock
           ghcr.io/bretfisher/clock
+      context: clock
     secrets:
       dockerhub-token: ${{ secrets.DOCKERHUB_TOKEN }}

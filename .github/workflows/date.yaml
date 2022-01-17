@@ -28,5 +28,6 @@ jobs:
       image-names: |
           bretfisher/date
           ghcr.io/bretfisher/date
+      context: date
     secrets:
       dockerhub-token: ${{ secrets.DOCKERHUB_TOKEN }}

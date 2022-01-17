@@ -28,5 +28,6 @@ jobs:
       image-names: |
           bretfisher/top
           ghcr.io/bretfisher/top
+      context: top
     secrets:
       dockerhub-token: ${{ secrets.DOCKERHUB_TOKEN }}
