@@ -1,0 +1,32 @@
+name: Build and Push Top Image
+
+on:
+  push:
+    branches:
+      - 'main'
+    paths:
+      - 'top/**'
+      - '.github/workflows/top.yml'
+  pull_request:
+    branches:
+      - 'main'
+    paths:
+      - 'top/**'
+      - '.github/workflows/top.yml'
+  schedule:
+    # re-run montly to keep image fesh with upstream base images
+    - cron: '0 12 15 * *'
+  workflow_dispatch:
+    # run whenever we want!
+
+jobs:
+  call-docker-workflow:
+    # use Reusable Workflows
+    # https://docs.github.com/en/actions/learn-github-actions/reusing-workflows
+    uses: bretfisher/github-actions-templates/.github/workflows/docker-build-and-push.yaml@main
+    with:
+      image-names: |
+          bretfisher/top
+          ghcr.io/bretfisher/top
+    secrets:
+      dockerhub-token: ${{ secrets.DOCKERHUB_TOKEN }}

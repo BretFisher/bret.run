@@ -1,0 +1,32 @@
+name: Build and Push Pingpong Image
+
+on:
+  push:
+    branches:
+      - 'main'
+    paths:
+      - 'pingpong/**'
+      - '.github/workflows/pingpong.yml'
+  pull_request:
+    branches:
+      - 'main'
+    paths:
+      - 'pingpong/**'
+      - '.github/workflows/pingpong.yml'
+  schedule:
+    # re-run montly to keep image fesh with upstream base images
+    - cron: '0 12 15 * *'
+  workflow_dispatch:
+    # run whenever we want!
+
+jobs:
+  call-docker-workflow:
+    # use Reusable Workflows
+    # https://docs.github.com/en/actions/learn-github-actions/reusing-workflows
+    uses: bretfisher/github-actions-templates/.github/workflows/docker-build-and-push.yaml@main
+    with:
+      image-names: |
+          bretfisher/pingpong
+          ghcr.io/bretfisher/pingpong
+    secrets:
+      dockerhub-token: ${{ secrets.DOCKERHUB_TOKEN }}

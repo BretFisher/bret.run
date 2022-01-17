@@ -1,0 +1,32 @@
+name: Build and Push Date Image
+
+on:
+  push:
+    branches:
+      - 'main'
+    paths:
+      - 'date/**'
+      - '.github/workflows/date.yml'
+  pull_request:
+    branches:
+      - 'main'
+    paths:
+      - 'date/**'
+      - '.github/workflows/date.yml'
+  schedule:
+    # re-run montly to keep image fesh with upstream base images
+    - cron: '0 12 15 * *'
+  workflow_dispatch:
+    # run whenever we want!
+
+jobs:
+  call-docker-workflow:
+    # use Reusable Workflows
+    # https://docs.github.com/en/actions/learn-github-actions/reusing-workflows
+    uses: bretfisher/github-actions-templates/.github/workflows/docker-build-and-push.yaml@main
+    with:
+      image-names: |
+          bretfisher/date
+          ghcr.io/bretfisher/date
+    secrets:
+      dockerhub-token: ${{ secrets.DOCKERHUB_TOKEN }}
