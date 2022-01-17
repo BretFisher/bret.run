@@ -29,5 +29,6 @@ jobs:
           bretfisher/facepalm
           ghcr.io/bretfisher/facepalm
       context: facepalm
+      platforms: linux/amd64,linux/arm64
     secrets:
       dockerhub-token: ${{ secrets.DOCKERHUB_TOKEN }}
